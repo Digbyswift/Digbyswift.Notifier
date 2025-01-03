@@ -8,7 +8,7 @@ After checking out the repository, run `npm install` to install required package
 
 ## Development
 
-To run in dev mode, navigate to `/app` and enter `npx electron-forge start` in the terminal.
+To run in dev mode, enter `npx electron-forge start` in the terminal.
 
 ## Build
 

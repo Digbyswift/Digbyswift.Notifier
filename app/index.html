@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="main-column">
+    <h1 id="title">
+      Digbyswift Notifier
+    </h1>
+    <h3>This application is now performing regular background checks to Uptime Robot and will display an alert window if
+      any down sites are reported.</h2>
+    <script src="./renderer.js"></script>
+  </div>
+</body>
+
+</html>
