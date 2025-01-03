@@ -24,3 +24,8 @@ apiKeyForm.addEventListener("submit", (e) => {
 window.electronAPI.onDowntimeReport((value) => {
     reportElement.innerHTML = value;
 })
+
+window.electronAPI.onNoKey(() => {
+    apiKeyForm.classList.remove('hidden');
+    reportingMessage.classList.add('hidden');
+})

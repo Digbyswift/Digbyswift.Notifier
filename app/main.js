@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, Tray, screen, ipcMain } = require('electron');
 const path = require('node:path');
 const { Repository } = require('./api/repository');
 const { IntervalReportService } = require('./services/interval-report-service');
+const settings = require('electron-settings')
 
 let tray = null
 let mainWindow = null;
@@ -40,7 +41,7 @@ function createTray() {
     tray.setContextMenu(contextMenu)
 }
 
-function initReporting(key){
+function initReporting(key) {
     let display = screen.getPrimaryDisplay()
     const repository = new Repository(key);
     const intervalReportService = new IntervalReportService(repository, display)
@@ -49,11 +50,23 @@ function initReporting(key){
 }
 
 app.on('ready', () => {
-    ipcMain.on('submitKey', (e, data) => initReporting(data))
+    settings.get('api-key')
+        .then((res) => {
+            if (res) {
+                initReporting(res)
+            } else {
+                mainWindow.webContents.send('no-key');
+            }
+        })
+
+    ipcMain.on('submitKey', (e, data) => {
+        initReporting(data)
+        settings.set('api-key', data)
+    })
 
     createWindow()
     createTray()
-    
+
     mainWindow.on('close', (event) => {
         if (!app.isQuiting) {
             event.preventDefault();
