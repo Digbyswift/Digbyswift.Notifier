@@ -1,15 +1,18 @@
 const axios = require('axios');
 
 class Repository {
-    constructor() {
+    path = 'https://api.uptimerobot.com/v2/getMonitors?api_key=';
+    apiKey;
 
+    constructor(apiKey) {
+        this.apiKey = apiKey;
     }
 
     async fetchMonitors() {
         let response = null;
 
         try {
-            response = await axios.post(this.endpoint)
+            response = await axios.post(`${this.path}${this.apiKey}`)
         } catch (exception) {
             console.log(exception)
         }

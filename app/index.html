@@ -14,8 +14,18 @@
     <h1 id="title">
       Digbyswift Notifier
     </h1>
-    <h3>This application is now performing regular background checks to Uptime Robot and will display an alert window if
-      any down sites are reported.</h2>
+    <div id="api-form">
+      <h3 id="form-title">
+        Enter Api Key:
+      </h3>
+      <form>
+        <input id="api-key-field" type="text">
+        <input id="submit" type="submit" value="submit">
+      </form>
+    </div>
+    <div id="reporting-message" class="hidden">
+      <h3>This application is now performing regular background checks to Uptime Robot and will display an alert window if any down sites are reported.</h3>
+    </div>
     <script src="./renderer.js"></script>
   </div>
 </body>

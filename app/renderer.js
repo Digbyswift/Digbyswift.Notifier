@@ -8,6 +8,19 @@ function showNotification(){
 }
 
 const reportElement = document.getElementById('report-details');
+const apiKeyForm = document.getElementById('api-form');
+const reportingMessage = document.getElementById('reporting-message');
+
+apiKeyForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const value = document.getElementById('api-key-field').value;
+    window.electronAPI.submitKey(value);
+
+    apiKeyForm.classList.add('hidden');
+    reportingMessage.classList.remove('hidden');
+});
+
 window.electronAPI.onDowntimeReport((value) => {
     reportElement.innerHTML = value;
 })
