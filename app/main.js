@@ -64,6 +64,10 @@ app.on('ready', () => {
         settings.set('api-key', data)
     })
 
+    ipcMain.on('clearApiKey', () => {
+        settings.unset('api-key');
+    })
+
     createWindow()
     createTray()
 
