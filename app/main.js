@@ -7,6 +7,8 @@ const settings = require('electron-settings')
 let tray = null
 let mainWindow = null;
 
+let resourcesDir = app.isPackaged ? process.resourcesPath : './extraResources';
+
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 600,
@@ -20,7 +22,7 @@ function createWindow() {
 }
 
 function createTray() {
-    tray = new Tray('tray-icon.png')
+    tray = new Tray(`${resourcesDir}/tray-icon.png`)
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Open',

@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "Monitors Uptime Robot API and notifies user regarding downtime.",
   "main": "main.js",
+  "build": {
+    "extraResources": [
+      {
+        "from": "./src/extraResources/",
+        "to": "extraResources",
+        "filter": [
+          "**/*"
+        ]
+      }]
+  },
   "scripts": {
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
