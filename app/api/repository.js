@@ -17,7 +17,7 @@ class Repository {
             console.log(exception)
         }
 
-        return response.data.monitors;
+        return response?.data?.monitors;
     }
 
     async getDownMonitors() {
@@ -25,16 +25,18 @@ class Repository {
             const monitors = await this.fetchMonitors();
             const downMonitors = [];
 
-            for (let i = 0; i < monitors.length; i++) {
-                const monitor = monitors[i];
-                switch(monitor['status']){
-                    case 8:
-                        downMonitors.push(monitor);
-                        break;
-                    case 9:
-                        downMonitors.push(monitor);
-                        break;
-                }
+            if(Array.isArray(monitors)){
+                for (let i = 0; i < monitors.length; i++) {
+                    const monitor = monitors[i];
+                    switch(monitor['status']){
+                        case 8:
+                            downMonitors.push(monitor);
+                            break;
+                        case 9:
+                            downMonitors.push(monitor);
+                            break;
+                    }
+                }    
             }
 
             return downMonitors;

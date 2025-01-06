@@ -1,4 +1,8 @@
 function generateDowntimeReport(monitors){
+    if(!Array.isArray(monitors)){
+        return "";
+    }
+    
     let reportHtml = [`<h2>Sites Down:${monitors.length}</h2>`]
 
     for(let i = 0; i < monitors.length; i++){
