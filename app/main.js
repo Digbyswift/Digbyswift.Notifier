@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, Tray, screen, ipcMain } = require('electron');
-const { IntervalReportService } = require('./services/interval-report-service');
 const path = require('node:path');
+const { Repository } = require('./api/repository');
+const { IntervalReportService } = require('./services/interval-report-service');
 const settings = require('electron-settings')
 
 let tray = null
@@ -43,9 +44,10 @@ function createTray() {
     tray.setContextMenu(contextMenu)
 }
 
-function initReporting() {
+function initReporting(key) {
     let display = screen.getPrimaryDisplay()
-    const intervalReportService = new IntervalReportService(display)
+    const repository = new Repository(key);
+    const intervalReportService = new IntervalReportService(repository, display)
 
     intervalReportService.initInterval(20000);
 }
