@@ -1,18 +1,14 @@
-const NOTIFICATION_TITLE = 'Notification Button'
-const NOTIFICATION_BODY = 'You Clicked the Notification Button'
-const CLICK_MESSAGE = 'Notification clicked!'
-
 const reportElement = document.getElementById('report-details');
 const apiKeyForm = document.getElementById('api-form');
 const reportingMessage = document.getElementById('reporting-message');
 const clearButton = document.getElementById('clear-button');
 
-function showNotification(){
-    new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY, icon: "tray-icon.png" });
+function showNotification(title, body){
+    new window.Notification(title, { body: body, icon: "tray-icon.png" });
     window.electronAPI.showNotification("notification shown");
 }
 
-function toggle(element){
+function toggleHide(element){
     if(element.classList.contains('hidden')){
         element.classList.remove('hidden');
     } else {
@@ -20,9 +16,9 @@ function toggle(element){
     }
 }
 
-function toggleHidden(){
-    toggle(apiKeyForm);
-    toggle(reportingMessage);
+function toggleKeyForm(){
+    toggleHide(apiKeyForm);
+    toggleHide(reportingMessage);
 }
 
 apiKeyForm.addEventListener("submit", (e) => {
@@ -31,7 +27,7 @@ apiKeyForm.addEventListener("submit", (e) => {
     const value = document.getElementById('api-key-field').value;
     window.electronAPI.submitKey(value);
 
-    toggleHidden();
+    toggleKeyForm();
 });
 
 window.electronAPI.onDowntimeReport((value) => {
@@ -39,11 +35,11 @@ window.electronAPI.onDowntimeReport((value) => {
 })
 
 window.electronAPI.onNoKey(() => {
-    toggleHidden();
+    toggleKeyForm();
 })
 
 clearButton.addEventListener("click", (e) => {
     e.preventDefault();
     window.electronAPI.clearApiKey();
-    toggleHidden();
+    toggleKeyForm();
 })

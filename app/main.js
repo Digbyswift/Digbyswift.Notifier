@@ -1,12 +1,10 @@
 const { app, BrowserWindow, Menu, Tray, screen, ipcMain } = require('electron');
-const path = require('node:path');
-const { Repository } = require('./api/repository');
 const { IntervalReportService } = require('./services/interval-report-service');
+const path = require('node:path');
 const settings = require('electron-settings')
 
 let tray = null
 let mainWindow = null;
-
 let resourcesDir = app.isPackaged ? process.resourcesPath : './extraResources';
 
 function createWindow() {
@@ -40,14 +38,14 @@ function createTray() {
             }
         }
     ])
+
     tray.setToolTip('Digbyswift Notifier')
     tray.setContextMenu(contextMenu)
 }
 
-function initReporting(key) {
+function initReporting() {
     let display = screen.getPrimaryDisplay()
-    const repository = new Repository(key);
-    const intervalReportService = new IntervalReportService(repository, display)
+    const intervalReportService = new IntervalReportService(display)
 
     intervalReportService.initInterval(20000);
 }
