@@ -35,6 +35,7 @@ function createTray() {
         {
             label: 'Exit',
             click: async () => {
+                mainWindow.removeAllListeners('close');
                 app.quit()
             }
         }
