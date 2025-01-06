@@ -9,15 +9,12 @@ class Repository {
     }
 
     async fetchMonitors() {
-        let response = null;
-
         try {
-            response = await axios.post(`${this.path}${this.apiKey}`)
+           let response = await axios.post(`${this.path}${this.apiKey}`)
+           return response?.data?.monitors;
         } catch (exception) {
             console.log(exception)
         }
-
-        return response?.data?.monitors;
     }
 
     async getDownMonitors() {

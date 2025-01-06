@@ -1,5 +1,6 @@
 const { generateDowntimeReport } = require('../notifications/generate-downtime-report');
 const { createNotificationWindow } = require('../notifications/create-notification-window');
+const Repository = require('../api/repository');
 
 class IntervalReportService {
     alertWindow = null; 
@@ -7,8 +8,8 @@ class IntervalReportService {
     repository;
     display;
     
-    constructor(repository, display){
-        this.repository = repository;
+    constructor(display){
+        this.repository = new Repository();
         this.display = display;
         this.runCheckAndNotify = this.runCheckAndNotify.bind(this);
     }
