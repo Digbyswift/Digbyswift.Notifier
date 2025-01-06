@@ -86,3 +86,7 @@ app.on('ready', () => {
 app.on('window-all-closed', (event) => {
     event.preventDefault();
 });
+
+app.on('before-quit', function () {
+    tray.destroy();
+});
