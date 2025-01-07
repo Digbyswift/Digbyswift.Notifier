@@ -21,14 +21,16 @@ function toggleKeyForm(){
     toggleHide(reportingMessage);
 }
 
-apiKeyForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const value = document.getElementById('api-key-field').value;
-    window.electronAPI.submitKey(value);
-
-    toggleKeyForm();
-});
+if(apiKeyForm){
+    apiKeyForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    
+        const value = document.getElementById('api-key-field').value;
+        window.electronAPI.submitKey(value);
+    
+        toggleKeyForm();
+    });
+}
 
 window.electronAPI.onDowntimeReport((value) => {
     reportElement.innerHTML = value;

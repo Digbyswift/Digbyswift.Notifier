@@ -1,4 +1,4 @@
-const { BrowserWindow, ipcMain} = require('electron');
+const { BrowserWindow } = require('electron');
 const path = require('node:path');
 
 function createNotificationWindow(screenWidth) {
@@ -8,7 +8,7 @@ function createNotificationWindow(screenWidth) {
         y: 0,
         x: screenWidth - 400,
         webPreferences: {
-            preload: path.join(__dirname, '../preload.js')
+            preload: path.join(__dirname, '../../preload.js')
         }
     })
 
