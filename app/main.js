@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Menu, Tray, screen, ipcMain } = require('electron');
 const path = require('node:path');
-const { Repository } = require('./api/repository');
-const { IntervalReportService } = require('./services/interval-report-service');
+const { Repository } = require('./infrastructure/api/repository');
+const { IntervalReportService } = require('./infrastructure/services/interval-report-service');
 const settings = require('electron-settings')
 
 let tray = null

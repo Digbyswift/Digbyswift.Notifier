@@ -21,7 +21,6 @@ class Repository {
         try {
             const monitors = await this.fetchMonitors();
             const downMonitors = [];
-
             if(Array.isArray(monitors)){
                 for (let i = 0; i < monitors.length; i++) {
                     const monitor = monitors[i];
