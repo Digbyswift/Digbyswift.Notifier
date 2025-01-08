@@ -1,5 +1,9 @@
 # Readme
 
+## About
+
+Digbyswift Notifier is an electron application which monitors the Uptime Robot API and displays an alert if a monitor is down.
+
 ## Installation
 
 Requires NodeJs v16
