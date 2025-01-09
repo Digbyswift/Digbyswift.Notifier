@@ -1,11 +1,15 @@
 
 body {
-    font-family : "Helvetica";
+    font-family: "europa", sans-serif;
     background-color:red;
 }
 
 #main-column{
     margin : 1rem;
     padding: 1rem;
-    background-color: linen!important;
+    background-color: white;
+}
+
+h1,h2,h3,h4,h5,p,li {
+    color: #221d4b;
 }

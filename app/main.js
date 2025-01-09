@@ -15,6 +15,7 @@ function createWindow() {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         },
+        icon: path.join(__dirname, 'dock-icon.png')
     })
 
     mainWindow.loadFile('index.html');
