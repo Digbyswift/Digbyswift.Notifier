@@ -11,7 +11,7 @@ let resourcesDir = app.isPackaged ? process.resourcesPath : './extraResources';
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 600,
-        height: 400,
+        height: 500,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
