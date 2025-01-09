@@ -14,7 +14,7 @@ function createWindow() {
         height: 400,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
     })
 
     mainWindow.loadFile('index.html');
@@ -85,6 +85,10 @@ app.on('ready', () => {
     tray.on('double-click', () => {
         mainWindow.show();
     });
+
+    if(app.isPackaged){
+        Menu.setApplicationMenu(null);
+    }
 })
 
 app.on('window-all-closed', (event) => {

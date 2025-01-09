@@ -1,5 +1,5 @@
 {
-  "name": "Digbyswift.Notifier",
+  "name": "Uptime Robot Notifier",
   "version": "1.0.0",
   "description": "Monitors Uptime Robot API and notifies user regarding downtime.",
   "main": "main.js",
