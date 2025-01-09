@@ -40,7 +40,6 @@ class Repository {
         } catch (exception) {
             console.log(exception)
         }
-
     }
 }
 

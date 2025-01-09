@@ -47,8 +47,9 @@ function createTray() {
 function initReporting(key) {
     let display = screen.getPrimaryDisplay()
     const repository = new Repository(key);
-    const intervalReportService = new IntervalReportService(repository, display)
+    const intervalReportService = new IntervalReportService(repository, display, mainWindow)
 
+    intervalReportService.runCheckAndNotify();
     intervalReportService.initInterval(20000);
 }
 
