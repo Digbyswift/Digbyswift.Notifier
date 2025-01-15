@@ -23,4 +23,8 @@ app.on('ready', () => {
         })
 
     addListeners(mainWindow, tray);
+    
+    app.setLoginItemSettings({
+        openAtLogin: true
+    })
 })

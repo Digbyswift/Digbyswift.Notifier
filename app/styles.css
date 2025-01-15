@@ -3,6 +3,10 @@ body {
     background-color: white;
 }
 
+.main-body {
+    display: flex;
+}
+
 #main-column {
     margin: 2rem;
 }
