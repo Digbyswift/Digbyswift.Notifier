@@ -1,7 +1,7 @@
 
 body {
     font-family: "europa", sans-serif;
-    background-color:red;
+    background-color:rgb(211, 27, 27);
 }
 
 #main-column{
@@ -12,4 +12,10 @@ body {
 
 h1,h2,h3,h4,h5,p,li {
     color: #221d4b;
+}
+
+.down-report-listing::before {
+    content: "•";
+    color: #ff0000;
+    margin:0 10px;
 }
