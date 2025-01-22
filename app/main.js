@@ -13,15 +13,6 @@ app.on('ready', () => {
         Menu.setApplicationMenu(null);
     }
 
-    settings.get('api-key')
-        .then((res) => {
-            if (res) {
-                initReporting(res, mainWindow)
-            } else {
-                mainWindow.webContents.send('no-key');
-            }
-        })
-
     addListeners(mainWindow, tray);
     
     if(app.isPackaged){
@@ -29,4 +20,16 @@ app.on('ready', () => {
             openAtLogin: true
         });
     }
+
+    mainWindow.on('ready-to-show', () => {
+        settings.get('api-key')
+        .then((res) => {
+            if (res) {
+                initReporting(res, mainWindow)
+            } else {
+                mainWindow.webContents.send('no-key');
+            }
+        })
+    })
+
 })
