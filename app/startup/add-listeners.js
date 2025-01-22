@@ -1,4 +1,6 @@
 const { app, ipcMain } = require('electron');
+const settings = require('electron-settings');
+const { initReporting } = require('./init-reporting');
 
 function addListeners(mainWindow, tray){
     ipcMain.on('submitKey', (e, data) => {
