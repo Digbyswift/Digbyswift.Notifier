@@ -9,17 +9,16 @@ function showNotification(title, body){
     window.electronAPI.showNotification("notification shown");
 }
 
-function toggleHide(element){
-    if(element.classList.contains('hidden')){
-        element.classList.remove('hidden');
-    } else {
+function hideElement(element){
+    if(!element.classList.contains('hidden')){
         element.classList.add('hidden');
     }
 }
 
-function toggleKeyForm(){
-    toggleHide(apiKeyForm);
-    toggleHide(reportingMessage);
+function showElement(element){
+    if(element.classList.contains('hidden')){
+        element.classList.remove('hidden');
+    }
 }
 
 if(apiKeyForm){
@@ -27,9 +26,14 @@ if(apiKeyForm){
         e.preventDefault();
     
         const value = document.getElementById('api-key-field').value;
-        window.electronAPI.submitKey(value);
+
+        if(value){
+            // To do - Add validation for API key
+            window.electronAPI.submitKey(value);
     
-        toggleKeyForm();
+            showElement(reportingMessage);
+            hideElement(apiKeyForm);
+        }
     });
 }
 
@@ -42,11 +46,13 @@ window.electronAPI.onStatusReport((value) => {
 })
 
 window.electronAPI.onNoKey(() => {
-    toggleKeyForm();
+    showElement(apiKeyForm);
+    hideElement(reportingMessage);
 })
 
 clearButton.addEventListener("click", (e) => {
     e.preventDefault();
     window.electronAPI.clearApiKey();
-    toggleKeyForm();
+    hideElement(reportingMessage);
+    showElement(apiKeyForm);
 })
