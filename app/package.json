@@ -11,17 +11,24 @@
         "filter": [
           "**/*"
         ]
-      }]
+      }
+    ]
   },
   "scripts": {
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "start:webpack": "npx webpack --mode development --watch",
+    "start:electron": "npx electron-forge start",
+    "pack-run": "npm-run-all -p start:webpack start:electron"
   },
   "author": "Digbyswift",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-react": "^7.26.3",
     "@electron-forge/cli": "^7.6.0",
     "@electron-forge/maker-deb": "^7.6.0",
     "@electron-forge/maker-rpm": "^7.6.0",
@@ -30,11 +37,26 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
     "@electron-forge/plugin-fuses": "^7.6.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "^33.2.1"
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "electron": "^33.2.1",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.1",
+    "@mui/material": "^6.4.1",
+    "all": "^0.0.0",
     "axios": "^1.7.9",
     "electron-settings": "^4.0.4",
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "npm-run-all": "^4.1.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

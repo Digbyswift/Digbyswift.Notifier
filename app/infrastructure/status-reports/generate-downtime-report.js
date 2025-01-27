@@ -8,7 +8,7 @@ function generateDowntimeReport(monitors){
     for(let i = 0; i < monitors.length; i++){
         const monitor = monitors[i];
         let title = monitor['friendly_name'];
-        reportHtml.push(`<h4 class="down-report-listing">- ${title}</h4>`)
+        reportHtml.push(`<h4 className="down-report-listing">- ${title}</h4>`)
     }
 
     return reportHtml.join("");

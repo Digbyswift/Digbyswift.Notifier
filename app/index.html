@@ -4,42 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div class="main-body">
-    <div id="main-column">
-      <div class="header">
-        <img id="logo-image" width="250" src="./extraResources/ds-logo.png">
-        <h2 id="title">
-          Uptime Notifier
-        </h2>
-      </div>
-      <div id="api-form" class="hidden">
-        <h3 id="form-title">
-          Enter Api Key:
-        </h3>
-        <form>
-          <input id="api-key-field" type="text">
-          <input id="submit" type="submit" value="submit">
-        </form>
-      </div>
-      <div id="reporting-message">
-        <h4>This application is now performing regular background checks to Uptime Robot and will display an alert
-          window
-          if any down sites are reported.</h4>
-      </div>
-      <button id="clear-button">
-        Clear API key
-      </button>
-      <div id="recent-status">
-      </div>
-      <script src="./renderer.js"></script>
-    </div>
+  <div id="root">
+
   </div>
 </body>
-
 </html>
