@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Toolbar, AppBar, IconButton, Container, Stack, Typography, createTheme, ThemeProvider } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Container, Stack, createTheme, ThemeProvider } from '@mui/material';
 import ApiKeyForm from '../api-key-form/api-key-form';
 import RecentStatus from '../recent-status/recent-status';
+import AppBarComponent from '../app-bar/app-bar-component';
 
 const theme = createTheme({
     palette: {
@@ -28,20 +28,10 @@ const theme = createTheme({
 })
 
 export default function MainWindow() {
+
     return (
         <ThemeProvider theme={theme}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}><MenuIcon></MenuIcon></IconButton>
-                    <Typography variant="h5">
-                        Uptime Notifier
-                    </Typography>
-                </Toolbar>
-            </AppBar>
+            <AppBarComponent/>
             <Box sx={{ m: 3 }}></Box>
             <Container maxWidth='sm'>
                 <div className="main-body">

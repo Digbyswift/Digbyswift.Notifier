@@ -8,7 +8,7 @@ function createNotificationWindow(screenWidth) {
         y: 0,
         x: screenWidth - 450,
         webPreferences: {
-            preload: path.join(__dirname, '../../preload.js'),
+            preload: path.join(__dirname, '../../preload/alert-preload.js'),
             nodeIntegration: true,
             contextIsolation: true,
             enableRemoteModule: false,
