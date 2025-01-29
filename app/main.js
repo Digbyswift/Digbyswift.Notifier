@@ -6,7 +6,7 @@ let tray = null
 let mainWindow = null;
 
 app.on('ready', () => {
-    mainWindow = createMainWindow();
+    mainWindow = createMainWindow(app);
     tray = createTray(mainWindow);
 
     if (app.isPackaged) {
