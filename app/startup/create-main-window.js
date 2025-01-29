@@ -1,7 +1,7 @@
 const { BrowserWindow } = require('electron');
 const path = require('node:path');
 
-function createMainWindow(app) {
+function createMainWindow() {
     let mainWindow = new BrowserWindow({
         width: 750,
         height: 500,
@@ -10,7 +10,6 @@ function createMainWindow(app) {
             nodeIntegration: true,
             contextIsolation: true,
             enableRemoteModule: false,
-            sandbox: true,
         },
         icon: path.join(__dirname, '../dock-icon.png')
     })

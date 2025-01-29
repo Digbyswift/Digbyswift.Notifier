@@ -3,15 +3,14 @@ function generateDowntimeReport(monitors){
         return "";
     }
     
-    let reportHtml = [`<h3>Sites Down:${monitors.length}</h3>`]
+    let names = [];
 
     for(let i = 0; i < monitors.length; i++){
         const monitor = monitors[i];
-        let title = monitor['friendly_name'];
-        reportHtml.push(`<h4 className="down-report-listing">- ${title}</h4>`)
+        names.push(monitor['friendly_name'])
     }
 
-    return reportHtml.join("");
+    return names;
 }
 
 module.exports = { generateDowntimeReport }

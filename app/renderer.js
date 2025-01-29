@@ -1,6 +1,5 @@
 const reportElement = document.getElementById('report-details');
 const apiKeyForm = document.getElementById('api-form');
-const reportingMessage = document.getElementById('reporting-message');
 const clearButton = document.getElementById('clear-button');
 const recentStatus = document.getElementById('recent-status');
 

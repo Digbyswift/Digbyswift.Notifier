@@ -3,7 +3,6 @@ function generateStatusReport(monitors){
         return "";
     }
     
-    let reportHtml = [`<h4>Last Checked: ${new Date().toString()}</h4>`]
     let downMonitors = 0;
 
     for(let i = 0; i < monitors.length; i++){
@@ -18,9 +17,7 @@ function generateStatusReport(monitors){
         }
     }
     
-    reportHtml.push(`<h5>Sites down: <strong>${downMonitors}</strong></h5>`)
-
-    return reportHtml.join("");
+    return { checkDate : new Date().toString(), downMonitors : downMonitors }
 }
 
 module.exports = { generateStatusReport }

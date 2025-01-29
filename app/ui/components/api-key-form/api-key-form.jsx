@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Box, Container, Stack, Typography, createTheme, ThemeProvider } from '@mui/material';
+import { Button, Box, Container, Stack, Typography } from '@mui/material';
 
 export default function ApiKeyForm() {
     const [showForm, setShowForm] = useState(false);
-    const [report, setReport] = useState(null);
-
-    window.electronAPI.onDowntimeReport((value) => {
-        setReport(value);
-    })
-
 
     window.electronAPI.onNoKey(() => {
         setShowForm(false);
@@ -47,25 +41,21 @@ export default function ApiKeyForm() {
                                     </Button>
                                 </Stack>
                             </div>
-
                         </Box>
-
                     }
                     {
                         !showForm &&
-                        <>
-                            <div id="reporting-message">
-                                <Typography>
-                                    This application is now performing regular background checks to Uptime Robot and will display an alert
-                                    window if any down sites are reported.
-                                </Typography>
-                            </div>
+                        <Stack spacing={2}>
+                            <Typography>
+                                This application is now performing regular background checks to Uptime Robot and will display an alert
+                                window if any down sites are reported.
+                            </Typography>
                             <Button variant="contained" color="secondary" onClick={resetKey}>
                                 <Typography>
                                     Clear API key
                                 </Typography>
                             </Button>
-                        </>
+                        </Stack>
                     }
                 </Stack>
             </Container>

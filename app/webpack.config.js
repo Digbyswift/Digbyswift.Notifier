@@ -3,10 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: '/renderer/index.jsx',
+  entry: {
+    main: '/renderer/index.jsx',
+    alert: '/renderer/alert.jsx'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'renderer.js',
   },
   module: {
     rules: [
@@ -30,8 +32,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
+      chunks: ['main']
     }),
+    new HtmlWebpackPlugin({
+      filename: 'alert.html',
+      template: './ui/alert/alert.html',
+      chunks: ['alert']
+    })
   ],
+  
   devServer: {
     static: path.join(__dirname, 'dist'),
     hot: true,
