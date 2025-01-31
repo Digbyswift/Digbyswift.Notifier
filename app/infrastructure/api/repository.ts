@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-class Repository {
+export default class Repository {
     path = 'https://api.uptimerobot.com/v2/getMonitors?api_key=';
-    apiKey;
+    apiKey : string;
 
-    constructor(apiKey) {
+    constructor(apiKey : string) {
         this.apiKey = apiKey;
     }
 
@@ -20,7 +20,7 @@ class Repository {
     async getDownMonitors() {
         try {
             const monitors = await this.fetchMonitors();
-            const downMonitors = [];
+            const downMonitors : any[] = [];
             if(Array.isArray(monitors)){
                 for (let i = 0; i < monitors.length; i++) {
                     const monitor = monitors[i];
@@ -42,5 +42,3 @@ class Repository {
         }
     }
 }
-
-module.exports = { Repository }

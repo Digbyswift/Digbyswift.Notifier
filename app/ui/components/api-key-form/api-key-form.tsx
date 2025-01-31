@@ -9,12 +9,14 @@ export default function ApiKeyForm() {
     })
 
     function submitKey() {
-        const value = document.getElementById('api-key-field').value;
+        const element : HTMLInputElement | HTMLElement | null = document.getElementById('api-key-field');
 
-        if (value) {
+        if(element instanceof HTMLInputElement && element?.value){
+            let value = element.value;
             window.electronAPI.submitKey(value);
             setShowForm(false);
         }
+
     }
 
     function resetKey() {

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { Container, Stack, Typography  } from '@mui/material';
+import StatusReport from '../../../models/reports/status-report';
 
 export default function RecentStatus() {
-    const [recentStatus, setRecentStatus] = useState(null);
+    const [recentStatus, setRecentStatus] = useState<StatusReport | null>(null);
     
     window.electronAPI.onStatusReport((value) => {
         setRecentStatus(value);
@@ -23,5 +24,7 @@ export default function RecentStatus() {
                 </Container>
             </>
         )
+    } else {
+        return <></>
     }
 }

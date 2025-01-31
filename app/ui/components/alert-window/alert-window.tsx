@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Stack, Typography, createTheme, ThemeProvider } from '@mui/material';
 
 const theme = createTheme({
-    spacing: 8,
     palette: {
         mode: 'light',
         primary: {
@@ -19,14 +18,13 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: [
-            "europa", "sans-serif"
-        ]
+        fontFamily: 
+            "europa , sans-serif"
     }
 })
 
 export default function AlertWindow() {
-    const [report, setReport] = useState(null);
+    const [report, setReport] = useState<string[]>([]);
 
     window.electronAPI.onDowntimeReport((value) => {
         setReport(value);

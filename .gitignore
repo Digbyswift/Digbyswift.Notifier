@@ -131,3 +131,6 @@ dist
 
 #vscode folder
 .vscode/
+
+#compiled TS files
+build

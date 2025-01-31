@@ -6,5 +6,10 @@ const App = () => {
     return <AlertWindow/>
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+const rootElement = document.getElementById('root');
+
+if(rootElement){
+    let root = ReactDOM.createRoot(rootElement)
+    root.render(<App />);
+}
+

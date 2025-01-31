@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    main: '/renderer/index.jsx',
-    alert: '/renderer/alert.jsx'
+    main: '/renderer/index.tsx',
+    alert: '/renderer/alert.tsx'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,10 +13,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: [
+                "@babel/preset-typescript",
+                "@babel/preset-env",
+            ]
+        }
         },
       },
       {
@@ -26,7 +32,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   devtool: 'source-map',
   plugins: [

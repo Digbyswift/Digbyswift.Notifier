@@ -1,9 +1,9 @@
-const { app, Menu, Tray } = require('electron');
+import { BrowserWindow, app, Menu, Tray } from "electron";
 
-function createTray(mainWindow) {
+export default function createTray(mainWindow : BrowserWindow) {
     const resourcesDir = app.isPackaged ? process.resourcesPath : './extraResources';
-
-    tray = new Tray(`${resourcesDir}/tray-icon.png`)
+    const tray = new Tray(`${resourcesDir}/tray-icon.png`)
+    
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Open',
@@ -27,5 +27,3 @@ function createTray(mainWindow) {
 
     return tray;
 }
-
-module.exports = { createTray };

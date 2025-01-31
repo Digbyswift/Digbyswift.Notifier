@@ -1,7 +1,7 @@
 const { BrowserWindow } = require('electron');
 const path = require('node:path');
 
-function createMainWindow() {
+export default function createMainWindow() {
     let mainWindow = new BrowserWindow({
         width: 750,
         height: 500,
@@ -9,7 +9,6 @@ function createMainWindow() {
             preload: path.join(__dirname, '../preload/preload.js'),
             nodeIntegration: true,
             contextIsolation: true,
-            enableRemoteModule: false,
         },
         icon: path.join(__dirname, '../dock-icon.png')
     })
@@ -20,5 +19,3 @@ function createMainWindow() {
 
     return mainWindow;
 }
-
-module.exports = { createMainWindow }

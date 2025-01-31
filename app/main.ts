@@ -1,9 +1,9 @@
-const { app, Menu } = require('electron');
+import { BrowserWindow, app, Menu } from "electron";
 const settings = require('electron-settings')
 const { createMainWindow, createTray, initReporting, addListeners } = require('./startup/startup');
 
 let tray = null
-let mainWindow = null;
+let mainWindow : BrowserWindow;
 
 app.on('ready', () => {
     mainWindow = createMainWindow(app);
@@ -23,7 +23,7 @@ app.on('ready', () => {
 
     mainWindow.on('ready-to-show', () => {
         settings.get('api-key')
-        .then((res) => {
+        .then((res : any) => {
             if (res) {
                 initReporting(res, mainWindow)
             } else {

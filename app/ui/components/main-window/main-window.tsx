@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Container, Stack, createTheme, ThemeProvider } from '@mui/material';
-import ApiKeyForm from '../api-key-form/api-key-form';
 import RecentStatus from '../recent-status/recent-status';
 import AppBarComponent from '../app-bar/app-bar-component';
+import ApiKeyForm from '../api-key-form/api-key-form';
 
 const theme = createTheme({
     palette: {
@@ -21,22 +21,20 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: [
-            "europa", "sans-serif"
-        ]
+        fontFamily: 
+            "europa, sans-serif"
     }
 })
 
 export default function MainWindow() {
-
     return (
         <ThemeProvider theme={theme}>
-            <AppBarComponent/>
+            {/* <AppBarComponent/> */}
             <Box sx={{ m: 3 }}></Box>
             <Container maxWidth='sm'>
                 <div className="main-body">
                     <div id="main-column">
-                        <Stack direct="column" spacing={1}>
+                        <Stack direction="column" spacing={1}>
                             <Box display="flex" justifyContent="center" alignItems="center" >
                                 <img id="logo-image" width="250" src="../extraResources/ds-logo.png" />
                             </Box>

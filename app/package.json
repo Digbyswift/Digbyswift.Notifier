@@ -2,11 +2,11 @@
   "name": "Digbyswift.Notifier",
   "version": "1.0.0",
   "description": "Monitors Uptime Robot API and notifies user regarding downtime.",
-  "main": "main.js",
+  "main": "./build/main.js",
   "build": {
     "extraResources": [
       {
-        "from": "./src/extraResources/",
+        "from": "./app/extraResources/",
         "to": "extraResources",
         "filter": [
           "**/*"
@@ -19,16 +19,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "tsc": "tsc",
     "start:webpack": "npx webpack --mode development --watch",
     "start:electron": "npx electron-forge start",
-    "pack-run": "npm-run-all -p start:webpack start:electron"
+    "pack-run": "npm-run-all tsc -p start:webpack start:electron"
   },
   "author": "Digbyswift",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.26.7",
-    "@babel/preset-env": "^7.26.7",
-    "@babel/preset-react": "^7.26.3",
+    "@babel/core": "7.26.7",
+    "@babel/preset-env": "7.26.7",
+    "@babel/preset-react": "7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@electron-forge/cli": "^7.6.0",
     "@electron-forge/maker-deb": "^7.6.0",
     "@electron-forge/maker-rpm": "^7.6.0",
@@ -37,26 +39,31 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
     "@electron-forge/plugin-fuses": "^7.6.0",
     "@electron/fuses": "^1.8.0",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^7.1.2",
+    "@types/react-dom": "^18.0.0",
+    "babel-loader": "9.2.1",
+    "css-loader": "7.1.2",
     "electron": "^33.2.1",
-    "html-webpack-plugin": "^5.6.3",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "file-loader": "6.2.0",
+    "html-webpack-plugin": "5.6.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "style-loader": "4.0.0",
+    "typescript": "^5.7.3",
+    "webpack": "5.97.1",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.0"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.1",
-    "@mui/material": "^6.4.1",
+    "@mui/material": "^6.4.2",
+    "@types/material-ui": "^0.21.18",
+    "@types/react": "^18.0.0",
     "all": "^0.0.0",
     "axios": "^1.7.9",
     "electron-settings": "^4.0.4",
     "electron-squirrel-startup": "^1.0.1",
-    "npm-run-all": "^4.1.5",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "npm-run-all": "^4.1.5"
   }
 }

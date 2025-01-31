@@ -1,7 +1,7 @@
 const { BrowserWindow } = require('electron');
 const path = require('node:path');
 
-function createNotificationWindow(screenWidth) {
+export default function createNotificationWindow(screenWidth : number) {
     const win = new BrowserWindow({
         width: 450,
         height: 350,
@@ -11,12 +11,9 @@ function createNotificationWindow(screenWidth) {
             preload: path.join(__dirname, '../../preload/alert-preload.js'),
             nodeIntegration: true,
             contextIsolation: true,
-            enableRemoteModule: false,
         }
     })
 
     win.loadFile(`file://${path.join('../dist/alert.html')}`);
     return win;
 }
-
-module.exports = { createNotificationWindow }

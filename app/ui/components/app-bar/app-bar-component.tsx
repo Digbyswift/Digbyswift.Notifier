@@ -42,7 +42,7 @@ export default function AppBarComponent() {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
-                        <Badge badgeContent={downMonitors.downMonitors} color="secondary">
+                        <Badge badgeContent={downMonitors} color="secondary">
                             <MonitorHeartIcon />
                         </Badge>
                     </IconButton>

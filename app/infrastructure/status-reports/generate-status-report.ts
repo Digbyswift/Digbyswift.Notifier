@@ -1,4 +1,6 @@
-function generateStatusReport(monitors){
+import StatusReport from "../../models/reports/status-report";
+
+export default function generateStatusReport(monitors : any[]){
     if(!Array.isArray(monitors)){
         return "";
     }
@@ -17,7 +19,5 @@ function generateStatusReport(monitors){
         }
     }
     
-    return { checkDate : new Date().toString(), downMonitors : downMonitors }
+    return new StatusReport(new Date().toString(), downMonitors);
 }
-
-module.exports = { generateStatusReport }
