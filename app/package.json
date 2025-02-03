@@ -22,7 +22,8 @@
     "tsc": "tsc",
     "start:webpack": "npx webpack --mode development --watch",
     "start:electron": "npx electron-forge start",
-    "pack-run": "npm-run-all tsc -p start:webpack start:electron"
+    "pack-run": "npm-run-all tsc -p start:webpack start:electron",
+    "pack-make": "npm-run-all tsc -p start:webpack make"
   },
   "author": "Digbyswift",
   "license": "ISC",
