@@ -18,12 +18,13 @@
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make",
     "tsc": "tsc",
-    "start:webpack": "npx webpack --mode development --watch",
+    "start:webpack": "npx webpack --mode development",
     "start:electron": "npx electron-forge start",
-    "pack-run": "npm-run-all tsc -p start:webpack start:electron",
-    "pack-make": "npm-run-all tsc -p start:webpack make"
+    "make:webpack":"npx webpack --mode production",
+    "make:electron":"electron-forge make",
+    "pack-run": "npm-run-all tsc start:webpack start:electron",
+    "make": "npm-run-all tsc make:webpack make:electron"
   },
   "author": "Digbyswift",
   "license": "ISC",

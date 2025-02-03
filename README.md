@@ -16,7 +16,7 @@ To run in dev mode, navigate to `/app` and enter `npm run pack-run` in the termi
 
 ## Build
 
-To build enter `npx electron-forge make`. This will build an executable located in the `/out` folder. 
+To build enter `npm run make`. This will build an executable located in the `/out` folder. 
 
 ## Running the app
 

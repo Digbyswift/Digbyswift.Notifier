@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Badge, Box, Drawer, Toolbar, Stack, AppBar, IconButton, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import StatusReport from '../../../models/reports/status-report';
 
 export default function AppBarComponent() {
-    const [downMonitors, setDownMonitors] = useState(0);
+    const [downMonitors, setDownMonitors] = useState<StatusReport>(new StatusReport(Date().toString(), 0));
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     window.electronAPI.onStatusReport((value) => {
@@ -42,7 +43,7 @@ export default function AppBarComponent() {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
-                        <Badge badgeContent={downMonitors} color="secondary">
+                        <Badge badgeContent={downMonitors.downMonitors} color="secondary">
                             <MonitorHeartIcon />
                         </Badge>
                     </IconButton>

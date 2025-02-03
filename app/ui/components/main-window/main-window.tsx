@@ -29,7 +29,7 @@ const theme = createTheme({
 export default function MainWindow() {
     return (
         <ThemeProvider theme={theme}>
-            {/* <AppBarComponent/> */}
+            <AppBarComponent/>
             <Box sx={{ m: 3 }}></Box>
             <Container maxWidth='sm'>
                 <div className="main-body">

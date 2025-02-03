@@ -16,7 +16,6 @@ export default function ApiKeyForm() {
             window.electronAPI.submitKey(value);
             setShowForm(false);
         }
-
     }
 
     function resetKey() {
