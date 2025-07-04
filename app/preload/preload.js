@@ -5,6 +5,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     onDowntimeReport: (callback) => ipcRenderer.on('downtime-report', (_event, value) => callback(value)),
     onStatusReport: (callback) => ipcRenderer.on('status-report', (_event, value) => callback(value)),
     onNoKey: (callback) => ipcRenderer.on('no-key', (_event, value) => callback(value)),
+    onVersion: (callback) => ipcRenderer.on('get-version', (_event, value) => callback(value)),
     submitKey: (key) => ipcRenderer.send('submitKey', key),
-    clearApiKey: () => ipcRenderer.send('clearApiKey')
+    clearApiKey: () => ipcRenderer.send('clearApiKey'),
 })

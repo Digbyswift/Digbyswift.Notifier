@@ -6,17 +6,25 @@ import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 export default function AppBarComponent() {
     const [downMonitors, setDownMonitors] = useState(0);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [version, setVersion] = useState("");
 
     window.electronAPI.onStatusReport((value) => {
         setDownMonitors(value);
     })
 
+    window.electronAPI.onVersion((value) => {
+        setVersion(value);
+    })
+
     return (
         <>
-            <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <Stack sx={{ p: 2, px:2, bgcolor: "primary.main", height: "100%" }}>
-                    <Typography variant="subtitle1" sx={{color: "#fff"}}>
+            <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} justify="space-between">
+                <Stack useFlexGap sx={{ justifyContent : "space-between", p: 2, px: 2, bgcolor: "primary.main", height: "100%" }}>
+                    <Typography variant="subtitle1" sx={{ color: "#fff" }}>
                         <strong>Options</strong>
+                    </Typography>
+                    <Typography sx={{ color: "#fff" }}>
+                        {version}
                     </Typography>
                 </Stack>
             </Drawer>

@@ -14,22 +14,26 @@ app.on('ready', () => {
     }
 
     addListeners(mainWindow, tray);
-    
-    if(app.isPackaged){
+
+    if (app.isPackaged) {
         app.setLoginItemSettings({
             openAtLogin: true
         });
     }
 
     mainWindow.on('ready-to-show', () => {
+        let version = app.getVersion()
+        mainWindow.webContents.send('get-version', version);
+
+
         settings.get('api-key')
-        .then((res) => {
-            if (res) {
-                initReporting(res, mainWindow)
-            } else {
-                mainWindow.webContents.send('no-key');
-            }
-        })
+            .then((res) => {
+                if (res) {
+                    initReporting(res, mainWindow)
+                } else {
+                    mainWindow.webContents.send('no-key');
+                }
+            })
     })
 
 })
